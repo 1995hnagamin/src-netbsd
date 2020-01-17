@@ -123,6 +123,7 @@ linux_ioctl_hdio(struct lwp *l, const struct linux_sys_ioctl_args *uap,
 		error = linux_machdepioctl(l, uap, retval);
 		if (error == 0)
 			break;
+		/* Falls through. */
 	case LINUX_HDIO_GETGEO_BIG_RAW:
 		error = ioctlf(fp, DIOCGDINFO, &label);
 		error1 = ioctlf(fp, DIOCGPARTINFO, &pi);
